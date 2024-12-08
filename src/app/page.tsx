@@ -1,113 +1,219 @@
-import Image from "next/image";
+import ProductListSec from "@/components/common/ProductListSec";
+import Brands from "@/components/homepage/Brands";
+import DressStyle from "@/components/homepage/DressStyle";
+import Header from "@/components/homepage/Header";
+import Reviews from "@/components/homepage/Reviews";
+import { Product } from "@/types/product.types";
+import { Review } from "@/types/review.types";
+
+export const newArrivalsData: Product[] = [
+  {
+    id: 1,
+    title: "T-shirt with Tape Details",
+    srcUrl: "/images/pic1.png",
+    gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 120,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    title: "Skinny Fit Jeans",
+    srcUrl: "/images/pic2.png",
+    gallery: ["/images/pic2.png"],
+    price: 260,
+    discount: {
+      amount: 0,
+      percentage: 20,
+    },
+    rating: 3.5,
+  },
+  {
+    id: 3,
+    title: "Chechered Shirt",
+    srcUrl: "/images/pic3.png",
+    gallery: ["/images/pic3.png"],
+    price: 180,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    title: "Sleeve Striped T-shirt",
+    srcUrl: "/images/pic4.png",
+    gallery: ["/images/pic4.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 160,
+    discount: {
+      amount: 0,
+      percentage: 30,
+    },
+    rating: 4.5,
+  },
+];
+
+export const topSellingData: Product[] = [
+  {
+    id: 5,
+    title: "Vertical Striped Shirt",
+    srcUrl: "/images/pic5.png",
+    gallery: ["/images/pic5.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 232,
+    discount: {
+      amount: 0,
+      percentage: 20,
+    },
+    rating: 5.0,
+  },
+  {
+    id: 6,
+    title: "Courage Graphic T-shirt",
+    srcUrl: "/images/pic6.png",
+    gallery: ["/images/pic6.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 145,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 4.0,
+  },
+  {
+    id: 7,
+    title: "Loose Fit Bermuda Shorts",
+    srcUrl: "/images/pic7.png",
+    gallery: ["/images/pic7.png"],
+    price: 80,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 3.0,
+  },
+  {
+    id: 8,
+    title: "Faded Skinny Jeans",
+    srcUrl: "/images/pic8.png",
+    gallery: ["/images/pic8.png"],
+    price: 210,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 4.5,
+  },
+];
+
+export const relatedProductData: Product[] = [
+  {
+    id: 12,
+    title: "Polo with Contrast Trims",
+    srcUrl: "/images/pic12.png",
+    gallery: ["/images/pic12.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 242,
+    discount: {
+      amount: 0,
+      percentage: 20,
+    },
+    rating: 4.0,
+  },
+  {
+    id: 13,
+    title: "Gradient Graphic T-shirt",
+    srcUrl: "/images/pic13.png",
+    gallery: ["/images/pic13.png", "/images/pic10.png", "/images/pic11.png"],
+    price: 145,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 3.5,
+  },
+  {
+    id: 14,
+    title: "Polo with Tipping Details",
+    srcUrl: "/images/pic14.png",
+    gallery: ["/images/pic14.png"],
+    price: 180,
+    discount: {
+      amount: 0,
+      percentage: 0,
+    },
+    rating: 4.5,
+  },
+  {
+    id: 15,
+    title: "Black Striped T-shirt",
+    srcUrl: "/images/pic15.png",
+    gallery: ["/images/pic15.png"],
+    price: 150,
+    discount: {
+      amount: 0,
+      percentage: 30,
+    },
+    rating: 5.0,
+  },
+];
+
+export const reviewsData: Review[] = [
+  {
+    id: 1,
+    user: "Alex K.",
+    content:
+      '"Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.”',
+    rating: 5,
+    date: "August 14, 2023",
+  },
+  {
+    id: 2,
+    user: "Sarah M.",
+    content: `"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”`,
+    rating: 5,
+    date: "August 15, 2023",
+  },
+  {
+    id: 3,
+    user: "James L.",
+    content: `
+"As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.”"`,
+    rating: 5,
+    date: "August 16, 2023",
+  },
+  
+  
+  
+]
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <div>
+      <Header />
+      <Brands />
+      <main className="my-[50px] sm:my-[72px]">
+        <ProductListSec
+          title="NEW ARRIVALS"
+          data={newArrivalsData}
+          viewAllLink="/shop#new-arrivals"
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className="max-w-frame mx-auto px-4 xl:px-0">
+          <hr className="h-[1px] border-t-black/10 my-10 sm:my-16" />
+        </div>
+        <div className="mb-[50px] sm:mb-20">
+          <ProductListSec
+            title="top selling"
+            data={topSellingData}
+            viewAllLink="/shop#top-selling"
+          />
+        </div>
+        <div className="mb-[50px] sm:mb-20">
+          <DressStyle />
+        </div>
+        <Reviews data={reviewsData} />
+      </main>
+    </div>
   );
 }
